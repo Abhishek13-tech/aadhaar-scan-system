@@ -87,7 +87,7 @@ Run:
 ```bash
 uvicorn server:app --host 0.0.0.0 --port 8001 --reload
 ```
-Health check: <http://localhost:8001/api/health>
+Health check: http://localhost:8000/api/health
 
 ### 3. Frontend
 ```bash
@@ -97,14 +97,14 @@ yarn install
 
 Create `frontend/.env`:
 ```env
-REACT_APP_BACKEND_URL=http://localhost:8001
+REACT_APP_BACKEND_URL=http://localhost:8000
 ```
 
 Run:
 ```bash
-yarn start
+npm start
 ```
-Open <http://localhost:3000>.
+Open <http://localhost:3001>.
 
 ---
 
