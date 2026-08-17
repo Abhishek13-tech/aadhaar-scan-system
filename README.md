@@ -92,7 +92,7 @@ Health check: http://localhost:8000/api/health
 ### 3. Frontend
 ```bash
 cd frontend
-yarn install
+npm install
 ```
 
 Create `frontend/.env`:
