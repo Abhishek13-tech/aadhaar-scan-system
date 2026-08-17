@@ -1,0 +1,142 @@
+{
+  "theme": "Light",
+  "archetype": "Archetype 4 (Swiss & High-Contrast)",
+  "vibe": "Authoritative, Secure, Sterile, Precision, Technical",
+  "instructions_to_main_agent": "Do not use Shadcn 'Card' components with rounded corners and soft shadows. Build custom border-collapse style grids for data to convey a technical, 'Control Room' feel. The Aadhaar card is an official document; the UI must look like a high-end secure vault or terminal. Enforce strict data-testid attributes.",
+  "colors": {
+    "background": "#F8FAFC",
+    "surface": "#FFFFFF",
+    "primary": "#002FA7",
+    "primary_hover": "#00227A",
+    "text_main": "#0F172A",
+    "text_muted": "#64748B",
+    "border_subtle": "#E2E8F0",
+    "border_strong": "#94A3B8",
+    "success": "#10B981",
+    "error": "#EF4444",
+    "tinted_grey": "#F1F5F9"
+  },
+  "typography": {
+    "primary_font": "IBM Plex Sans",
+    "mono_font": "IBM Plex Mono",
+    "heading_strategy": "font-sans font-semibold tracking-tight text-slate-900",
+    "body_strategy": "font-sans text-slate-700",
+    "data_label_strategy": "font-mono text-xs uppercase tracking-[0.2em] text-slate-500",
+    "data_value_strategy": "font-mono text-sm sm:text-base text-slate-900",
+    "hierarchy": {
+      "h1": "text-3xl md:text-4xl tracking-tight leading-none",
+      "h2": "text-xl md:text-2xl tracking-tight",
+      "h3": "text-lg font-medium",
+      "body": "text-sm md:text-base"
+    },
+    "font_imports": [
+      "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');"
+    ]
+  },
+  "layout_and_spacing": {
+    "container_strategy": "The 'Control Room' Grid - Dense, precise, highly structured. Max-w-5xl mx-auto.",
+    "padding_scale": "p-4, p-6, p-8, p-12",
+    "grid_rules": "Use border-collapse style layouts for data sections. Grid items must use border-r and border-b to create a technical table-like feel.",
+    "radius": "rounded-none or max rounded-sm (2px to 4px). Avoid heavy rounding to maintain an official, technical appearance.",
+    "mobile_first": "Stack sections vertically on mobile. Move to a 2-column layout on md (Left: Scanner/Upload/Preview, Right: OCR Results Grid)."
+  },
+  "surface_strategies": {
+    "main_container": "Solid #FFFFFF background, strict 1px border (#E2E8F0), subtle shadow-sm. No glassmorphism. Pure function.",
+    "data_cells": "Flat backgrounds. No shadows. Grid borders separate all data points.",
+    "upload_zone": "Relative positioning. Implement 'viewfinder' or 'reticle' corners using absolute positioned pseudo-elements or divs. Background is very light grey (#F8FAFC). On drag-over: background shifts to light primary blue tint."
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#002FA7] text-white hover:bg-[#00227A] font-medium tracking-wide rounded-sm px-6 py-3 transition-colors flex items-center justify-center gap-2",
+      "secondary": "bg-white border border-[#94A3B8] text-slate-700 hover:bg-slate-50 font-medium rounded-sm px-6 py-3 transition-colors flex items-center justify-center gap-2"
+    },
+    "upload_dropzone": {
+      "structure": "Min height 320px. Flex column center. Reticle corners in the 4 edges to look like a document scanner.",
+      "text": "font-sans text-sm text-slate-600. Emphasize 'Drag & Drop Document' or 'Capture via Camera'.",
+      "actions": "Provide two distinct action buttons below the dropzone: 'Upload File' (PDF/Image) and 'Camera Capture'."
+    },
+    "ocr_results_panel": {
+      "structure": "CSS Grid layout (grid-cols-2). Each data point (Name, DOB, Gender, Aadhaar Number) gets its own cell with border-b and border-r.",
+      "masking_instructions": "Aadhaar number MUST be displayed with 'XXXX XXXX ' prefix (e.g., XXXX XXXX 1234). Use mono font for perfect alignment.",
+      "status_banner": "Small full-width banner at top of results or bottom of image preview. Green background/text for Success, Red for Failure."
+    },
+    "security_notice": {
+      "structure": "Small text at the absolute bottom of the main container.",
+      "style": "text-xs text-slate-500 flex items-center gap-2 justify-center py-4 border-t border-slate-200",
+      "content": "End-to-End Encrypted. Images are processed entirely in memory and never stored."
+    }
+  },
+  "animations": {
+    "scanner_beam": "During loading/OCR phase, overlay a 2px horizontal blue line (#002FA7) with a subtle drop shadow that animates continuously up and down over the uploaded image preview container.",
+    "loading_spinner": "Minimalist circle spinner or technical ASCII-style loader in the status area.",
+    "transitions": "Very fast, crisp transitions (150ms). No bounce. Use linear or ease-in-out."
+  },
+  "icons": {
+    "library": "lucide-react",
+    "usage": [
+      {
+        "name": "Scan",
+        "context": "Upload zone centerpiece"
+      },
+      {
+        "name": "Camera",
+        "context": "Mobile capture button"
+      },
+      {
+        "name": "Upload",
+        "context": "File select button"
+      },
+      {
+        "name": "CheckCircle2",
+        "context": "OCR Success state"
+      },
+      {
+        "name": "AlertCircle",
+        "context": "OCR Error state"
+      },
+      {
+        "name": "ShieldCheck",
+        "context": "Security notice"
+      },
+      {
+        "name": "Download",
+        "context": "Download JSON button"
+      }
+    ]
+  },
+  "testing_attributes": [
+    {
+      "element": "Upload Dropzone Input",
+      "testid": "upload-input-file"
+    },
+    {
+      "element": "Camera Capture Button",
+      "testid": "camera-capture-button"
+    },
+    {
+      "element": "OCR Extracted Name",
+      "testid": "ocr-result-name"
+    },
+    {
+      "element": "OCR Extracted DOB",
+      "testid": "ocr-result-dob"
+    },
+    {
+      "element": "OCR Extracted Gender",
+      "testid": "ocr-result-gender"
+    },
+    {
+      "element": "OCR Extracted Aadhaar",
+      "testid": "ocr-result-aadhaar"
+    },
+    {
+      "element": "Download JSON Button",
+      "testid": "download-json-button"
+    },
+    {
+      "element": "Processing Status Indicator",
+      "testid": "processing-status"
+    }
+  ],
+  "image_urls": []
+}

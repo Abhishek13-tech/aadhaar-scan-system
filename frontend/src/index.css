@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #F8FAFC;
+  color: #0F172A;
+}
+
+code, .mono {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+::selection { background: #002FA7; color: #ffffff; }
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 225 100% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 225 100% 33%;
+    --radius: 0.125rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
+}
+
+@layer base {
+  [data-debug-wrapper="true"] { display: contents !important; }
+  [data-debug-wrapper="true"] > * {
+    margin-left: inherit; margin-right: inherit; margin-top: inherit; margin-bottom: inherit;
+    padding-left: inherit; padding-right: inherit; padding-top: inherit; padding-bottom: inherit;
+    column-gap: inherit; row-gap: inherit; gap: inherit;
+    border-left-width: inherit; border-right-width: inherit; border-top-width: inherit; border-bottom-width: inherit;
+    border-left-style: inherit; border-right-style: inherit; border-top-style: inherit; border-bottom-style: inherit;
+    border-left-color: inherit; border-right-color: inherit; border-top-color: inherit; border-bottom-color: inherit;
+  }
+}
+
+/* ----------------------------------------------------------------- */
+/* Global Dark Mode overrides — flips the existing utility classes   */
+/* without forcing edits in every component file.                    */
+/* ----------------------------------------------------------------- */
+html.dark { color-scheme: dark; }
+
+html.dark body {
+  background: #0B1220;
+  color: #E2E8F0;
+}
+
+/* Surfaces */
+html.dark .bg-white                { background-color: #111827 !important; }
+html.dark .bg-\[\#F8FAFC\]         { background-color: #0F172A !important; }
+html.dark .bg-slate-50             { background-color: #0F172A !important; }
+html.dark .bg-slate-100            { background-color: #1F2937 !important; }
+html.dark .bg-\[\#FFF4E5\]         { background-color: rgba(255, 153, 51, 0.14) !important; }
+html.dark .hover\:bg-slate-50:hover{ background-color: #1F2937 !important; }
+html.dark .hover\:bg-slate-50\/60:hover { background-color: rgba(31, 41, 55, 0.6) !important; }
+
+/* Text */
+html.dark .text-slate-900 { color: #F1F5F9 !important; }
+html.dark .text-slate-800 { color: #E2E8F0 !important; }
+html.dark .text-slate-700 { color: #CBD5E1 !important; }
+html.dark .text-slate-600 { color: #94A3B8 !important; }
+html.dark .text-slate-500 { color: #94A3B8 !important; }
+html.dark .text-slate-400 { color: #64748B !important; }
+html.dark .text-slate-300 { color: #475569 !important; }
+html.dark .placeholder\:text-slate-400::placeholder { color: #475569 !important; }
+
+/* Borders */
+html.dark .border-slate-100 { border-color: #1F2937 !important; }
+html.dark .border-slate-200 { border-color: #1F2937 !important; }
+html.dark .border-slate-300 { border-color: #334155 !important; }
+html.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]) { border-color: #1F2937 !important; }
+html.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) { border-color: #1F2937 !important; }
+
+/* Status-tinted surfaces (kept tinted but darkened) */
+html.dark .bg-emerald-50 { background-color: rgba(19, 136, 8, 0.18) !important; }
+html.dark .border-emerald-200 { border-color: rgba(19, 136, 8, 0.5) !important; }
+html.dark .text-emerald-800 { color: #34D399 !important; }
+html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.18) !important; }
+html.dark .border-red-200 { border-color: rgba(239, 68, 68, 0.5) !important; }
+html.dark .text-red-700, html.dark .text-red-800, html.dark .text-red-600 { color: #F87171 !important; }
+html.dark .border-\[\#FFD8A8\] { border-color: rgba(255, 153, 51, 0.55) !important; }
+
+/* Form inputs */
+html.dark input, html.dark textarea, html.dark select {
+  color: #E2E8F0;
+}
+html.dark input::placeholder { color: #475569; }
+
+/* Smooth theme transition on key surfaces */
+body, .bg-white, [class*="bg-["], [class*="text-slate"], [class*="border-slate"] {
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+/* Mobile drawer overlay tint */
+html.dark .bg-slate-900\/40 { background-color: rgba(0, 0, 0, 0.6) !important; }
