@@ -29,3 +29,5 @@ google-ai-generativelanguage==0.6.15
 requests==2.33.1
 httpx==0.28.1
 pydantic==2.12.5
+
+opencv-python-headless==4.11.0.86
