@@ -185,15 +185,11 @@ Recommended screenshots:
 Example:
 
 ```markdown
-![Login](docs/screenshots/login.png)
-
-![Dashboard](docs/screenshots/dashboard.png)
-
-![Aadhaar Scanner](docs/screenshots/upload.png)
-
-![OCR Result](docs/screenshots/result.png)
-
-![Scan History](docs/screenshots/history.png)
+![Login](login.png)
+![Dashboard](dashboard.png)
+![Aadhaar Scanner](upload.png)
+![OCR Result](result.png)
+![Scan History](history.png)
 ```
 
 ---
